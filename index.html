@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JAEL AI | Tu Socio en Meta Ads</title>
+
+    <!-- Favicon -->
+   <link rel="icon" href="img/favicon.png" type="image/png">
+
+    <!-- CSS ESTÁTICO NORMAL -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header id="main-header">
+    <div class="header-container">
+
+        <a href="index.html">
+            <img src="img/logojael.png" alt="Logo de JAEL AI" id="logo">
+        </a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pages/dashboard.html">Dashboard</a></li>
+                <li><a href="pages/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<section class="hero-intro-text">
+    <div class="intro-container">
+        <!-- ESTE TEXTO SE CARGARÁ DESDE JSON CON JS -->
+        <h1 id="tituloIntro"></h1>
+        <h3 id="subtituloIntro"></h3>
+    </div>
+</section>
+
+<section class="hero-split">
+    <div class="container grid-layout">
+
+        <!-- CARD DEL GENERADOR -->
+        <div class="hero-tool glass-card">
+            <div class="badge">Versión Beta</div>
+            <h2>Generador de Estructuras</h2>
+            <p class="tool-desc">Sube tu anuncio y define tu objetivo. La IA hará el resto.</p>
+
+            <!-- FORMULARIO QUE ENVIARÁS A JS CON AJAX -->
+            <form id="generatorForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Imagen del anuncio</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="imagen" accept="image/png, image/jpeg" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Objetivo de campaña</label>
+                    <select id="objetivo" required>
+                        <option value="Reconocimiento">Reconocimiento</option>
+                        <option value="Interacción">Interacción</option>
+                        <option value="Clientes Potenciales">Clientes Potenciales</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="cta-button primary-cta full-width">
+                    ✨ Generar Estructura con IA
+                </button>
+            </form>
+        </div>
+
+        <!-- CONTENIDO HERO QUE VIENE DEL JSON -->
+        <div class="hero-content">
+            <h1 class="main-title">
+                Tu Socio Inteligente para <span class="text-gradient">Meta Ads</span>
+            </h1>
+
+            <p class="subtitle" id="descripcionHero"></p>
+
+            <ul class="benefits-list" id="beneficios"></ul>
+        </div>
+
+    </div>
+</section>
+
+<section id="caracteristicas" class="section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 id="pregunta"></h2>
+            <p id="subPregunta"></p>
+        </div>
+        
+        <div class="feature-grid" id="caracteristicasGrid">
+            <!-- Las tarjetas se cargarán dinámicamente desde JSON -->
+        </div>
+    </div>
+</section>
+
+<section id="problema" class="section dark-bg">
+    <div class="container">
+        <div class="problem-split">
+            
+            <div class="problem-text-col">
+                <h2 id="tituloProblema"></h2>
+                <p id="textoProblema"></p>
+            </div>
+
+            <div class="problem-image-col">
+                <img src="img/generar.png" alt="Ilustración de campaña">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="contact-footer" class="section footer-cta">
+    <div class="container">
+        <div class="glass-card horizontal-card">
+            <div class="text-part">
+                <h2>Agenda una DEMO GRATUITA</h2>
+                <p>Habla con un experto y transforma tus resultados hoy mismo.</p>
+            </div>
+
+            <div class="form-part">
+                <!-- FORMULARIO NO FUNCIONAL SOLO PARA DEMO -->
+                <form id="demoForm">
+                    <input type="text" placeholder="Tu Nombre" required>
+                    <input type="email" placeholder="Tu Correo Empresarial" required>
+                    <button type="submit" class="cta-button secondary-cta">Agendar Ahora</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="main-footer-pro">
+    <div class="footer-top-section">
+        <div class="container">
+            <div class="footer-grid-layout">
+                
+                <div class="footer-col-cta">
+                    <h4>¿QUÉ ESTÁS ESPERANDO?</h4>
+                    <h2>¡EMPIEZA CON UNA VENTAJA COMPETITIVA EN EL MERCADO!</h2>
+                </div>
+
+                <div class="footer-col-logo">
+                    <img src="img/logojael.png" alt="Logo de JAEL AI" id="footerlogo">
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4>MANTENTE EN CONTACTO</h4>
+                    <ul class="contact-details-list">
+                        <li><a>info@jael.com</a></li>
+                        <li><span>+593 97 876 0140</span></li>
+                        <li><span>Al alcance de un CLICK!</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom-section">
+        <div class="container">
+            <div class="footer-bottom-flex">
+
+                <div class="footer-legal-links">
+                    <a>POLÍTICAS DE PRIVACIDAD</a>
+                    <a>TÉRMINOS Y CONDICIONES</a>
+                </div>
+
+                <div class="footer-copyright">
+                    <p>Copyright © 2025. All rights reserved. Elian R. / Javier C. / David A.</p>
+                </div>
+
+                <div class="footer-social">
+                    <span>SÍGUENOS</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ARCHIVO JS PRINCIPAL -->
+<script src="js/app.js"></script>
+
+
+</body>
+</html>

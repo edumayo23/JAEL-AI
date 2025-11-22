@@ -1,0 +1,31 @@
+{
+    "intro": {
+        "titulo": "¡Genera Campañas Publicitarias exitosas en minutos!",
+        "subtitulo": "Olvídate de configuraciones complejas; la IA diseña la estructura perfecta para ti en segundos."
+    },
+
+    "hero": {
+        "descripcion": "¡Deja de adivinar! JAEL AI crea prompts optimizados y estructuras de campaña que realmente convierten, ahorrándote tiempo y dinero!",
+        "beneficios": [
+            "Optimización de Presupuesto",
+            "Prompts validados por expertos",
+            "Análisis de imagen con Visión Artificial"
+        ]
+    },
+
+    "caracteristicas": {
+        "titulo": "¿Por qué elegir JAEL AI?",
+        "subtitulo": "Tecnología adaptativa para tu PYME",
+        "items": [
+            { "titulo": "360° Acompañamiento", "desc": "Desde la idea hasta la configuración final optimizada." },
+            { "titulo": "Aprendizaje Continuo", "desc": "La IA aprende de tu nicho y mejora con cada campaña." },
+            { "titulo": "Prompts Expertos", "desc": "Estructuras validadas para extraer el máximo de la IA." },
+            { "titulo": "Presupuesto Smart", "desc": "Recomendaciones financieras basadas en rendimiento." }
+        ]
+    },
+
+    "problema": {
+        "titulo": "🚀¿Tus campañas no convierten?",
+        "texto": "Como dueño de negocio, sabes que Meta Ads es vital, pero complejo. JAEL AI elimina la incertidumbre técnica para que te enfoques en vender."
+    }
+}

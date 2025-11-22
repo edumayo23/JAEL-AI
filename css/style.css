@@ -1,0 +1,309 @@
+/* =========================================
+   ESTILOS GLOBALES Y RESET
+   ========================================= */
+:root{
+  --bg-color:#0B1120;
+  --primary-blue:#1e293b;
+  --accent-color:#3b82f6;
+  --accent-glow:#60a5fa;
+  --text-main:#ffffff;
+  --text-muted:#94a3b8;
+  --glass-bg:rgba(30,41,59,0.7);
+  --glass-border:rgba(255,255,255,0.1);
+  --footer-bg-color:#0a1a44;
+  --footer-text-color:#ffffff;
+  --footer-border-color:rgba(255,255,255,0.1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Inter',sans-serif;
+  background-color:var(--bg-color);
+  background-image:radial-gradient(circle at 50% 0%, #172554 0%, var(--bg-color) 60%);
+  color:var(--text-main);
+  line-height:1.6;
+}
+
+/* Contenedor general */
+.container{max-width:1000px;margin:0 auto;padding:0 20px;width:100%;}
+
+/* =========================================
+   HEADER
+   ========================================= */
+#main-header{
+  background-color:#ffffff;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  padding:10px 0;
+  position:relative;
+  width:100%;
+  z-index:10;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.header-container{
+  max-width:1000px;margin:0 auto;padding:0 20px;display:flex;justify-content:center;align-items:center;width:100%;
+}
+
+#logo{height:80px;width:auto;display:block}
+
+/* =========================================
+   INTRO
+   ========================================= */
+section.hero-intro-text{padding:40px 20px 20px;text-align:center}
+.hero-intro-text .intro-container{max-width:800px;margin:0 auto}
+#tituloIntro, .hero-intro-text h1{
+  font-size:2.5rem;font-weight:800;line-height:1.2;color:#ffffff;margin-bottom:15px;letter-spacing:-0.02em;text-shadow:0 0 30px rgba(59,130,246,0.3)
+}
+#subtituloIntro, .hero-intro-text h3{
+  font-size:1.25rem;color:var(--text-muted);max-width:700px;margin:0 auto;font-weight:400;line-height:1.5;
+}
+
+/* =========================================
+   HERO SPLIT / GRID
+   ========================================= */
+.hero-split{display:flex;align-items:center;justify-content:center;padding:20px 0 60px}
+.grid-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero-content{max-width:500px}
+.hero-content .main-title{font-size:2.2rem;font-weight:700;line-height:1.1;margin-bottom:15px}
+.text-gradient{background:linear-gradient(to right,#60a5fa,#a78bfa);-webkit-background-clip:text;color:transparent}
+.subtitle{font-size:1rem;color:var(--text-muted);margin-bottom:25px}
+.benefits-list{list-style:none}
+.benefits-list li{margin-bottom:8px;font-weight:500;font-size:0.95rem}
+
+/* =========================================
+   GLASS CARD (HERRAMIENTA)
+   ========================================= */
+.glass-card{
+  background:var(--glass-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);border-radius:20px;padding:30px;box-shadow:0 8px 32px rgba(0,0,0,0.3);width:100%;margin:0 auto;
+}
+
+/* Aseguramos que .hero-tool (que tienes en HTML) mantenga estilos */
+.hero-tool.glass-card{
+  max-width:500px;position:relative;border:2px solid #3b82f6;background:rgba(17,24,39,0.8);
+  box-shadow:0 0 20px rgba(59,130,246,0.5),0 0 40px rgba(59,130,246,0.2),inset 0 0 20px rgba(59,130,246,0.05);
+}
+
+.badge{position:absolute;top:-12px;right:20px;background:var(--accent-color);color:white;font-size:0.75rem;padding:4px 12px;border-radius:20px;font-weight:bold;box-shadow:0 2px 10px rgba(59,130,246,0.5)}
+
+.hero-tool h2{font-size:1.6rem;margin-bottom:5px;color:#fff}
+.tool-desc{font-size:0.9rem;color:var(--text-muted);margin-bottom:25px}
+
+/* =========================================
+   FORMULARIOS
+   ========================================= */
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:0.9rem;margin-bottom:8px;color:#cbd5e1;font-weight:600}
+
+input[type="file"],select,input[type="text"],input[type="email"]{
+  width:100%;padding:12px 15px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.15);
+  border-radius:10px;color:white;outline:none;font-family:inherit;font-size:0.95rem;transition:all .3s ease;
+}
+
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;background-size:16px;cursor:pointer}
+select option{background-color:var(--bg-color);color:white}
+input:focus,select:focus{border-color:var(--accent-color);box-shadow:0 0 0 3px rgba(59,130,246,0.2)}
+
+/* file button */
+input[type="file"]{padding:10px;font-size:0.9rem;cursor:pointer}
+input[type="file"]::file-selector-button{margin-right:15px;border:none;background:var(--accent-color);padding:8px 12px;border-radius:6px;color:#fff;font-weight:600;cursor:pointer;transition:background .2s}
+input[type="file"]::file-selector-button:hover{background:var(--accent-glow)}
+
+/* =========================================
+   BOTONES
+   ========================================= */
+.cta-button{display:inline-block;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;text-align:center;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);border:none;font-size:1rem;letter-spacing:.5px}
+.primary-cta{background:linear-gradient(to right,var(--accent-color),#2563eb);color:white;box-shadow:0 4px 15px rgba(59,130,246,0.4)}
+.primary-cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(59,130,246,0.5)}
+.secondary-cta{background:white;color:var(--bg-color);font-weight:700}
+.secondary-cta:hover{background:#f8fafc;transform:translateY(-2px);box-shadow:0 4px 15px rgba(255,255,255,0.2)}
+.full-width{width:100%}
+
+/* =========================================
+   SECCIONES GENERALES
+   ========================================= */
+.section{padding:60px 0}
+.section-header{text-align:center;margin-bottom:40px}
+.section-header h2{font-size:2rem;margin-bottom:10px}
+.section-header p{color:var(--text-muted);font-size:1.1rem}
+
+/* feature grid (tu HTML usa .feature-grid en vez de .feature-grid id) */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
+.feature-card{background:rgba(255,255,255,0.03);padding:25px;border-radius:16px;border:1px solid rgba(255,255,255,0.05);transition:all .3s}
+.feature-card:hover{transform:translateY(-5px);background:rgba(255,255,255,0.05);border-color:rgba(59,130,246,0.3);box-shadow:0 10px 30px -10px rgba(0,0,0,0.5)}
+.feature-card h3{color:var(--accent-glow);margin-bottom:12px;font-size:1.2rem}
+.feature-card p{color:var(--text-muted);font-size:.95rem;line-height:1.5}
+
+/* =========================================
+   PROBLEMA (SECTION DARK)
+   ========================================= */
+.section.dark-bg{background:rgba(0,0,0,0.3);padding:60px 0;margin-top:50px;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
+.problem-split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.problem-text-col{max-width:500px}
+.problem-image-col img{width:100%;height:auto;display:block;border-radius:16px;filter:drop-shadow(0 15px 30px rgba(0,0,0,0.3))}
+
+/* Animación sutil */
+@keyframes subtle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.dark-bg h2{font-size:2rem;margin-bottom:20px;color:white;animation:subtle-float 4s ease-in-out infinite;text-shadow:0 10px 20px rgba(0,0,0,0.5)}
+.dark-bg p{font-size:1.3rem;line-height:1.7;color:#cbd5e1;font-weight:500}
+
+/* =========================================
+   CTA / CONTACT FOOTER (horizontal-card)
+   ========================================= */
+.footer-cta{padding-bottom:80px}
+.horizontal-card{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;background:linear-gradient(to right, rgba(30,41,59,0.8), rgba(15,23,42,0.9));border:1px solid rgba(59,130,246,0.2);padding:28px;border-radius:16px}
+.text-part{flex:1;min-width:300px}
+.text-part h2{font-size:1.8rem;margin-bottom:10px;background:linear-gradient(to right,#fff,#a5b4fc);-webkit-background-clip:text;color:transparent}
+.text-part p{color:var(--text-muted);font-size:1.1rem}
+.form-part{flex:1;min-width:350px}
+.demo-form-inline{display:flex;gap:10px}
+.demo-form-inline input{flex:1;background:rgba(255,255,255,0.05);padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06)}
+
+/* =========================================
+   FOOTER PRO (nuevo) - aplica a tu HTML: #main-footer-pro
+   ========================================= */
+
+/* estructura externa */
+#main-footer-pro{background:var(--footer-bg-color);color:var(--footer-text-color);font-family:'Inter',sans-serif;width:100%}
+
+/* parte superior con grid */
+#main-footer-pro .footer-top-section{padding:70px 0}
+#main-footer-pro .footer-grid-layout{display:grid;grid-template-columns:2.5fr 1fr 1.5fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* columna CTA */
+#main-footer-pro .footer-col-cta h4{font-size:1.1rem;font-weight:600;margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px;color:var(--footer-text-color)}
+#main-footer-pro .footer-col-cta h2{font-size:2.2rem;font-weight:900;line-height:1.1;text-transform:uppercase;margin:0;max-width:600px;color:var(--footer-text-color)}
+
+/* columna logo */
+#main-footer-pro .footer-col-logo{text-align:center;display:flex;justify-content:center}
+#main-footer-pro .footer-col-logo img{max-width:130px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 0 15px rgba(59,130,246,0.4))}
+
+/* columna contacto */
+#main-footer-pro .footer-col-contact h4{font-size:1.1rem;font-weight:600;margin-bottom:25px;text-transform:uppercase;color:var(--footer-text-color)}
+#main-footer-pro .contact-details-list{list-style:none;padding:0;margin:0}
+#main-footer-pro .contact-details-list li{display:flex;align-items:flex-start;margin-bottom:18px;font-size:1rem;line-height:1.4;color:var(--footer-text-color)}
+#main-footer-pro .contact-details-list li i{margin-right:15px;font-size:1.3rem;width:25px;text-align:center;color:var(--accent-glow);margin-top:3px}
+
+/* estilo enlaces en footer */
+#main-footer-pro .contact-details-list a{color:var(--footer-text-color);text-decoration:none;transition:color .3s}
+#main-footer-pro .contact-details-list a:hover{color:var(--accent-glow)}
+
+/* parte inferior */
+#main-footer-pro .footer-bottom-section{background-color:rgba(0,0,0,0.15);padding:25px 0;border-top:1px solid var(--footer-border-color)}
+#main-footer-pro .footer-bottom-flex{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;max-width:1200px;margin:0 auto;padding:0 20px}
+#main-footer-pro .footer-legal-links a{color:var(--footer-text-color);text-decoration:none;margin-right:30px;font-weight:700;text-transform:uppercase;font-size:0.85rem}
+#main-footer-pro .footer-legal-links a:hover{text-decoration:underline}
+#main-footer-pro .footer-copyright p{margin:0;opacity:.8;color:var(--footer-text-color)}
+#main-footer-pro .footer-social{display:flex;align-items:center;gap:20px}
+#main-footer-pro .footer-social span{font-weight:700;text-transform:uppercase;color:var(--footer-text-color)}
+#main-footer-pro .footer-social a{color:var(--footer-text-color);font-size:1.5rem;text-decoration:none;transition:transform .3s ease,color .3s ease}
+#main-footer-pro .footer-social a:hover{color:var(--accent-glow);transform:translateY(-3px)}
+
+/* Footer responsive */
+@media (max-width:992px){
+  #main-footer-pro .footer-grid-layout{grid-template-columns:1fr;text-align:center;gap:50px}
+  #main-footer-pro .footer-col-cta h2{font-size:1.8rem;margin:0 auto}
+  #main-footer-pro .contact-details-list li{justify-content:center;text-align:left}
+  #main-footer-pro .footer-bottom-flex{flex-direction:column;text-align:center;gap:25px}
+  #main-footer-pro .footer-legal-links a{display:block;margin:10px 0}
+}
+
+/* =========================================
+   ESTILOS PARA LA PÁGINA DE RESULTADOS
+   ========================================= */
+.section h2{text-align:center;font-size:2.2rem;color:#ffffff;margin-bottom:30px;text-shadow:0 0 30px rgba(59,130,246,0.4)}
+.resultado-box{background:rgba(15,23,42,0.95);border:1px solid #3b82f6;border-radius:16px;padding:40px;margin:0 auto 40px;max-width:900px;box-shadow:0 0 25px rgba(59,130,246,0.15),inset 0 0 20px rgba(59,130,246,0.05);position:relative;overflow:hidden}
+.resultado-box::before{content:"/// OUTPUT GENERADO POR JAEL AI_";display:block;font-family:'Courier New',monospace;font-size:.85rem;color:#3b82f6;margin-bottom:25px;border-bottom:1px solid rgba(59,130,246,0.2);padding-bottom:15px;letter-spacing:1px;font-weight:bold}
+.resultado-box pre{font-family:'Consolas','Monaco','Courier New',monospace;font-size:1.05rem;line-height:1.8;color:#e2e8f0;white-space:pre-wrap;word-wrap:break-word;overflow-wrap:break-word;background:transparent;border:none;margin:0}
+.section .cta-button{display:table;margin:0 auto;min-width:200px}
+
+/* Responsive para resultados */
+@media(max-width:768px){.resultado-box{padding:20px;border-radius:12px}.resultado-box pre{font-size:.9rem}.section h2{font-size:1.8rem}}
+
+/* pequeños ajustes responsive del layout principal */
+@media(max-width:900px){
+  .grid-layout{grid-template-columns:1fr;gap:50px;text-align:center}
+  .hero-content{order:1;margin:0 auto;text-align:left}
+  .hero-content .main-title{text-align:center}
+  .hero-tool.glass-card{order:2;max-width:550px}
+  .hero-intro-text h1{font-size:2.2rem}
+  .horizontal-card{flex-direction:column;text-align:center;gap:30px;padding:40px 30px}
+  .demo-form-inline{flex-direction:column;width:100%}
+  .demo-form-inline .cta-button{width:100%}
+}
+
+@media(max-width:600px){
+  #logo{height:60px}
+  section.hero-intro-text{padding:30px 20px 10px}
+  .hero-intro-text h1{font-size:1.8rem}
+  .hero-intro-text h3{font-size:1.1rem}
+  .hero-split{padding-top:20px}
+  .grid-layout{gap:40px}
+  .hero-content .main-title{font-size:1.8rem}
+  .glass-card{padding:25px 20px;border-radius:16px}
+  .hero-tool h2{font-size:1.4rem}
+  .section{padding:40px 0}
+  .section-header h2{font-size:1.6rem}
+  .feature-grid{grid-template-columns:1fr}
+  .text-part h2{font-size:1.5rem}
+}
+
+/* ==== MENÚ SUPERIOR ==== */
+
+#main-header {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    width: 180px;
+    cursor: pointer;
+}
+
+/* NAV */
+.main-nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.main-nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.25s ease;
+}
+
+.main-nav a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-nav ul {
+        gap: 18px;
+    }
+
+    #logo {
+        width: 120px;
+    }
+}
