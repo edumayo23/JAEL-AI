@@ -1,0 +1,102 @@
+    /* style.css */
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+    :root {
+        /* Definición de colores para el tema oscuro */
+        --color-primary: #3b82f6; /* Azul de Acento */
+        --color-background: #151a24; /* Fondo Principal */
+        --color-card: #1e2735; /* Fondo de Tarjetas */
+        --color-text-secondary: #94a3b8; /* Gris Secundario */
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--color-background);
+    }
+
+    /* style2.css */
+
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    
+    /* === CAMBIOS AQUÍ === */
+    /* Usar altura máxima en lugar de altura fija para que no se estire del todo */
+    max-height: 50vh; /* Ajusta este valor: 50vh es la mitad de la altura de la ventana */
+    /* O si prefieres una altura fija en píxeles: */
+    /* height: 500px; */ 
+    
+    overflow-y: auto; /* Añade un scroll vertical si el contenido excede max-height */
+    /* =================== */
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 50;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+}
+
+/* El resto de tus estilos de responsividad para el sidebar (max-width: 1023px) deben permanecer igual */
+/* ... */
+
+    .main-content {
+        margin-left: 280px;
+    }
+
+    /* Ajuste para móvil: oculta el sidebar por defecto */
+    @media (max-width: 1023px) {
+        .sidebar {
+            transform: translateX(-100%);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .main-content {
+            margin-left: 0;
+        }
+        /* Muestra el sidebar cuando tiene la clase 'open' */
+        .sidebar.open {
+            transform: translateX(0);
+        }
+    }
+
+    /* Estilo para la tabla y gráficos */
+    .table-container {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    /* Fuerza la altura para que los gráficos se muestren correctamente */
+    .chart-card {
+        height: 380px;
+    }
+
+    
+
+    /* Asegura que las imágenes de las tarjetas no tengan bordes extra o paddings */
+.card img {
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    max-width: 100%;
+    height: auto;
+}
+
+/* Efecto de sombra más pronunciado al pasar el ratón */
+.card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* Sombra más grande */
+}
+
+
+.header-container {
+ max-width: 1200px;
+ margin: auto;
+ padding: 0 20px;
+ display: flex; /* <-- ESTO HACE QUE LOS ELEMENTOS SE ALINEEN HORIZONTALMENTE */
+ justify-content: space-between; /* <-- ESTO SEPARA EL LOGO DEL MENÚ */
+align-items: center;
+  width: 100%;
+}
+.main-nav ul {
+ display: flex; /* <-- ESTO HACE QUE LOS ENLACES (LI) SE ALINEEN HORIZONTALMENTE */
+ gap: 32px;
+ list-style: none;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAEL AI Ads | Dashboard de Rendimiento Unificado</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style2.css"> 
+</head>
+
+
+<body class="text-white">
+<header id="encabezado-principal" class="bg-gray-800 shadow-lg border-b border-gray-700 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <a href="index.html" class="flex-shrink-0 flex items-center">
+                <img src="img/logojael.png" alt="Logo de JAEL AI" id="logo" class="h-8 w-auto"> 
+            </a>
+
+            <div id="nav-menu-links" 
+                 class="navegacion-principal hidden md:block w-full absolute top-16 left-0 bg-gray-800 pb-4 shadow-xl md:w-auto md:relative md:top-auto md:left-auto md:p-0 md:shadow-none z-40"> 
+                
+                <ul class="flex space-x-8 md:flex-row flex-col">
+                    <li>
+                        <a href="index.html" class="block py-2 px-4 md:px-0 text-gray-300 hover:text-blue-500 transition duration-150">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="pages/dashboard.html" class="block py-2 px-4 md:px-0 text-gray-300 hover:text-blue-500 transition duration-150 font-bold border-b-2 border-blue-500 pb-1">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="pages/contacto.html" class="block py-2 px-4 md:px-0 text-gray-300 hover:text-blue-500 transition duration-150">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <button id="menu-toggle-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <span class="material-icons-outlined text-3xl">menu</span>
+            </button>
+            
+        </div>
+    </header>
+    <aside id="sidebar" class="sidebar bg-[--color-card] p-6 flex flex-col">
+        <div class="text-2xl font-extrabold text-[--color-primary] mb-8 border-b border-gray-700 pb-4">
+            <span class="material-icons-outlined text-3xl align-middle mr-2">insights</span>
+            JAEL AI Ads
+        </div>
+        <ul class="flex flex-col space-y-2">
+            <li><a href="#" class="nav-item bg-[--color-primary] text-white p-3 rounded-xl flex items-center font-semibold"><span class="material-icons-outlined mr-3">dashboard</span> Dashboard</a></li>
+            <li><a href="#" class="nav-item text-gray-400 p-3 rounded-xl flex items-center hover:bg-gray-700 transition"><span class="material-icons-outlined mr-3">campaign</span> Campañas</a></li>
+            <li><a href="#" class="nav-item text-gray-400 p-3 rounded-xl flex items-center hover:bg-gray-700 transition"><span class="material-icons-outlined mr-3">attach_money</span> Presupuesto</a></li>
+            <li><a href="#" class="nav-item text-gray-400 p-3 rounded-xl flex items-center hover:bg-gray-700 transition"><span class="material-icons-outlined mr-3">analytics</span> Optimización</a></li>
+            <li><a href="#" class="nav-item text-gray-400 p-3 rounded-xl flex items-center hover:bg-gray-700 transition"><span class="material-icons-outlined mr-3">settings</span> Config Ads</a></li>
+        </ul>
+        
+        <button id="menu-button-lg" onclick="toggleSidebar()" class="lg:hidden fixed top-4 left-4 p-2 bg-[--color-primary] rounded-lg shadow-lg z-50">
+            <span class="material-icons-outlined text-white">menu</span>
+        </button>
+    </aside>
+
+    <main id="main-content" class="main-content p-4 lg:p-10">
+        
+        <button id="menu-button-sm" onclick="toggleSidebar()" class="lg:hidden p-2 bg-[--color-primary] rounded-lg shadow-lg mb-6">
+            <span class="material-icons-outlined text-white">menu</span>
+        </button>
+
+        
+        <div class="flex justify-between items-center mb-8 border-b border-gray-700 pb-4 flex-wrap">
+            <h1 class="text-3xl font-bold mb-4 lg:mb-0">Rendimiento de Campañas y CPA</h1>
+            <div class="flex items-center space-x-4">
+                <input type="text" placeholder="Buscar Campañas..." class="p-2 rounded-full bg-gray-700 border border-gray-600 text-white text-sm focus:ring-2 focus:ring-[--color-primary] focus:border-transparent transition">
+                <span class="material-icons-outlined text-gray-400 cursor-pointer">notifications</span>
+                <div class="flex items-center p-2 bg-gray-700 rounded-full">
+                    <img src="assets/perfil.jpg" alt="Usuario" class="rounded-full w-8 h-8 mr-2">
+                    <span class="text-sm font-semibold hidden sm:inline">Hola, Analista Ads</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-blue-600 p-6 rounded-2xl shadow-xl mb-8 flex justify-between items-center flex-wrap gap-4">
+            <div>
+                <p class="text-xl font-bold text-white mb-1">¡Alerta de CPA Bajo! Tu rendimiento publicitario es excelente.</p>
+                <p class="text-blue-200 text-sm">Mantente al tanto de la eficiencia de costos y el desempeño de tus anuncios.</p>
+            </div>
+            <button class="bg-white text-blue-600 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-100 transition">
+                Ver Reporte Detallado
+            </button>
+        </div>
+
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8" id="kpi-cards-container">
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+            <div class="bg-[--color-card] p-6 rounded-xl shadow-lg chart-card">
+                <h3 class="text-lg font-semibold mb-4">Costo por Adquisición (CPA) Semanal</h3>
+                <canvas id="cpaChart" class="h-full w-full"></canvas>
+            </div>
+            
+        <div class="bg-[--color-card] p-6 rounded-xl shadow-lg chart-card flex flex-col">
+            <h3 class="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Distribución de Presupuesto Ads</h3>
+            <div class="flex flex-1 items-center justify-center">
+                <div class="w-1/2 h-full flex justify-center items-center">
+                    <canvas id="budgetChart" class="max-h-full"></canvas>
+                </div>
+                
+                <div id="budget-legend-container" class="w-1/2 p-4 space-y-2 text-sm">
+                    <p class="text-gray-400">Cargando distribución...</p>
+                </div>
+            </div>
+        </div>
+
+            <div class="bg-[--color-card] p-6 rounded-xl shadow-lg chart-card">
+                <h3 class="text-lg font-semibold mb-4">Tasa de Clic (CTR) por Creativo</h3>
+                <canvas id="ctrChart" class="h-full w-full"></canvas>
+            </div>
+            <div class="bg-[--color-card] p-6 rounded-xl shadow-lg chart-card">
+                <h3 class="text-lg font-semibold mb-4">Histórico de Inversión vs. Conversión</h3>
+                <canvas id="historyChart" class="h-full w-full"></canvas>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-8">
+                <div class="bg-[--color-card] p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Eventos Recientes de Conversión (Actualización Dinámica)</h3>
+                    <div class="table-container">
+                        <table class="min-w-full divide-y divide-gray-700">
+                            <thead class="bg-gray-700 sticky top-0">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">ID Evento</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Campaña</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Costo Asociado</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Métrica de Éxito</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800" id="transactions-body">
+                                <tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">Cargando datos...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-4">
+                <div class="bg-[--color-card] p-6 rounded-xl shadow-lg h-full flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Consejos de Optimización por IA</h3>
+                        <img src="img/ia.jpg" alt="Optimización por IA" class="w-full rounded-lg mb-4">
+                        <p class="text-gray-300 mb-6">La IA sugiere reasignar 10% del presupuesto a la campaña de Retargeting Q4 para maximizar el ROAS.</p>
+                    </div>
+                    <button class="w-full bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700 transition shadow-md">
+                        Implementar Ajuste Rápido
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    
+    <footer class="main-footer bg-gray-900 p-6 text-center text-sm border-t border-gray-700 mt-8 text-white">
+        <div class="max-w-7xl mx-auto">
+            
+            <p class="mb-2">
+                © ${currentYear} JAEL AI Ads. Todos los derechos reservados. |
+                <a href="#" class="hover:text-white transition">Política de Privacidad</a> | 
+                <a href="#" class="hover:text-white transition">Términos de Servicio</a>
+            </p>
+
+            <p class="mt-3 text-xs text-gray-400 border-t border-gray-700 pt-3">
+                Proyecto desarrollado por: **Javier, Elian Rodríguez y David Ayo**.<br>
+                Materia: Diseño y Creación de Páginas Web. | Carrera: Negocios Digitales. | Universidad: UPS.
+            </p>
+            
+            <p class="mt-1 text-xs text-gray-500">
+                Desarrollado con Tailwind CSS y Chart.js. Rendimiento en tiempo real desde ${lastUpdated}.
+            </p>
+            
+        </div>
+    </footer>
+
+
+ 
+</body>
+</html>
