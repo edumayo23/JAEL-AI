@@ -1,102 +1,351 @@
-    /* style.css */
+/* style.css */
 
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-        
-    :root {
-        /* Definición de colores para el tema oscuro */
-        --color-primary: #3b82f6; /* Azul de Acento */
-        --color-background: #151a24; /* Fondo Principal */
-        --color-card: #1e2735; /* Fondo de Tarjetas */
-        --color-text-secondary: #94a3b8; /* Gris Secundario */
-    }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+    
+:root {
+    /* Definición de colores para el tema oscuro */
+    --color-primary: #3b82f6; 
+    --color-background: #151a24; 
+    --color-card: #1e2735; 
+    --color-text-secondary: #94a3b8; 
+    
+    /* Variables necesarias para el Header Glassmorphism (Textos/Acentos) */
+    --text-main: #ffffff; 
+    --accent-color: #3b82f6;
+    --accent-glow: #60a5fa; 
+}
 
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--color-background);
-    }
+/* =========================================================
+    CORRECCIÓN DE ALTURA GLOBAL PARA ELEMENTOS FIJOS
+    ========================================================= */
+html, body {
+    height: 100%; 
+    margin: 0; 
+    padding: 0; 
+    overflow-x: hidden; 
+}
 
-    /* style2.css */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+}
+
+/* =========================================================
+    INICIO: ESTILOS DE BARRA LATERAL (SIDEBAR)
+    *** Altura ajustada al contenido (más corta) ***
+    ========================================================= */
 
 .sidebar {
     width: 280px;
     min-width: 280px;
+    background-color: var(--color-card); 
     
-    /* === CAMBIOS AQUÍ === */
-    /* Usar altura máxima en lugar de altura fija para que no se estire del todo */
-    max-height: 50vh; /* Ajusta este valor: 50vh es la mitad de la altura de la ventana */
-    /* O si prefieres una altura fija en píxeles: */
-    /* height: 500px; */ 
+    padding: 30px 20px; 
     
-    overflow-y: auto; /* Añade un scroll vertical si el contenido excede max-height */
-    /* =================== */
-
     position: fixed;
     left: 0;
-    top: 0;
+    
+    top: 64px; /* Fija el inicio justo debajo del Header (64px) */
+    
+    max-height: calc(100vh - 64px); 
+    
+    overflow-y: auto; 
     z-index: 50;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
     transform: translateX(0);
 }
 
-/* El resto de tus estilos de responsividad para el sidebar (max-width: 1023px) deben permanecer igual */
-/* ... */
+.sidebar-title {
+    font-size: 1.6rem; 
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 25px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 15px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
 
+.sidebar-title .material-icons-outlined {
+    font-size: 1.8rem;
+    margin-right: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.sidebar li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-text-secondary); 
+    padding: 12px 15px;
+    border-radius: 12px; 
+    transition: all 0.25s ease-out;
+}
+
+.sidebar li a .material-icons-outlined {
+    font-size: 1.35rem;
+    margin-right: 12px;
+    width: 20px;
+}
+
+.sidebar li a:hover {
+    background-color: var(--color-card); 
+    color: var(--text-main); 
+    transform: none; 
+    box-shadow: inset 3px 0 0 var(--color-primary); 
+}
+
+.sidebar li a.active {
+    background: linear-gradient(to right, var(--color-primary), #2563eb); 
+    color: white !important;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); 
+    transform: none; 
+}
+
+/* =========================================================
+    FIN: ESTILOS DE BARRA LATERAL MEJORADOS
+    ========================================================= */
+
+
+/* CLAVE DE LA CORRECCIÓN: SEPARACIÓN DEL ENCABEZADO */
+.main-content {
+    margin-left: 280px; 
+    /* ESTA REGLA EMPUJA EL CONTENIDO HACIA ABAJO EXACTAMENTE 64px, 
+       LA ALTURA DEL ENCABEZADO FIJO. */
+    padding-top: 64px;  
+    min-height: calc(100vh - 64px); 
+}
+
+/* Ajuste para móvil: oculta el sidebar por defecto */
+@media (max-width: 1023px) {
+    .sidebar {
+        transform: translateX(-100%);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
     .main-content {
-        margin-left: 280px;
+        margin-left: 0;
     }
-
-    /* Ajuste para móvil: oculta el sidebar por defecto */
-    @media (max-width: 1023px) {
-        .sidebar {
-            transform: translateX(-100%);
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .main-content {
-            margin-left: 0;
-        }
-        /* Muestra el sidebar cuando tiene la clase 'open' */
-        .sidebar.open {
-            transform: translateX(0);
-        }
+    .sidebar.open {
+        transform: translateX(0);
     }
+}
 
-    /* Estilo para la tabla y gráficos */
-    .table-container {
-        max-height: 400px;
-        overflow-y: auto;
-    }
+/* Estilo para la tabla y gráficos */
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
 
-    /* Fuerza la altura para que los gráficos se muestren correctamente */
-    .chart-card {
-        height: 380px;
-    }
+.chart-card {
+    height: 380px;
+}
 
-    
-
-    /* Asegura que las imágenes de las tarjetas no tengan bordes extra o paddings */
 .card img {
-    display: block; /* Elimina espacio extra debajo de la imagen */
+    display: block; 
     max-width: 100%;
     height: auto;
 }
 
-/* Efecto de sombra más pronunciado al pasar el ratón */
 .card:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* Sombra más grande */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); 
+}
+
+/* =========================================
+    ENCABEZADO: ESTILOS GLASSMORPHISM Y FIJO
+    ========================================= */
+
+#encabezado-principal {
+    background: rgba(0, 0, 0, 0.4) !important; 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); 
+    
+    /* Fijo en la parte superior */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important; 
+    width: 100% !important; 
+    z-index: 1000 !important; 
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important; 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* CLAVE: Asegura que el contenedor de los enlaces sea transparente */
+.navegacion-principal, .navegacion-principal ul {
+    background-color: transparent !important;
+}
+
+/* Estilos para los enlaces de navegación */
+.navegacion-principal a {
+    color: var(--text-main, #ffffff) !important; 
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 15px; 
+    border-radius: 8px;
+    transition: color 0.25s ease, text-shadow 0.25s ease, background-color 0.25s ease;
+    background-color: transparent !important; 
+    border-bottom: none !important; 
+}
+
+.navegacion-principal a:hover {
+    color: var(--accent-color, #3b82f6) !important; 
+    text-shadow: 0 0 8px var(--accent-glow, #60a5fa);
+    background-color: rgba(59, 130, 246, 0.1); 
+}
+
+.navegacion-principal a.font-bold.border-b-2.border-blue-500.pb-1 {
+    border-bottom: none !important;
+}
+
+/* Ajuste de logo */
+#logo {
+    height: 40px; 
+    width: auto;
+}
+
+/* =========================================
+    PIE DE PÁGINA (FOOTER) - Ajustes de espaciado
+    ========================================= */
+
+.main-footer {
+    background-color: var(--color-background); 
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08); 
+    color: var(--color-text-secondary); 
+    position: relative; 
+    z-index: 10;
+}
+
+.main-footer .max-w-7xl {
+    margin: 0 auto;
+    max-width: 1200px; 
+}
+
+.main-footer .copyright-section {
+    padding-bottom: 20px; 
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+.main-footer .text-xs {
+    font-size: 0.8rem; 
+    color: #6b7280; 
+    padding-top: 20px; 
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    line-height: 1.5;
+}
+
+.main-footer p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.main-footer a {
+    color: var(--color-primary); 
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.main-footer a:hover {
+    color: var(--text-main); 
+}
+
+.main-footer strong {
+    color: var(--text-main); 
+}
+
+/* =======================================================
+   ESTILOS PARA EL MENÚ HAMBURGUESA SUPERIOR (Móvil)
+   ======================================================= */
+@media (max-width: 767px){
+.navegacion-principal {
+    display: none !important;
+}
+
+#menu-toggle-button {
+    z-index: 1000 !important;
+    background-color: var(--color-primary) !important;
+    padding: 8px 12px !important; 
+    border-radius: 6px !important;
+    margin-left: auto !important; 
+    display: flex !important; 
+}
+#menu-toggle-button .material-icons-outlined {
+    font-size: 24px !important;
+    color: white !important;
+}
+
+.navegacion-principal.open{
+    display: block!important; 
+    position:absolute!important;
+    top:64px!important; 
+    left:0!important;
+    width:100%!important;
+    background:var(--color-background)!important;
+    box-shadow:0 8px 15px rgba(0,0,0,0.4)!important; 
+    padding:10px 0!important; 
+    z-index:900!important;
+    border-top:1px solid rgba(255, 255, 255, 0.06)!important;
+}
+
+.navegacion-principal.open ul{
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    padding:0!important; 
+    gap:0!important; 
+}
+.navegacion-principal.open ul li{
+    width: 100%!important;
+}
+.navegacion-principal.open ul li a{
+    padding:12px 20px!important; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05)!important;
+    display: block!important; 
+}
+.navegacion-principal.open ul li:last-child a{
+    border-bottom: none!important;
+}
 }
 
 
-.header-container {
- max-width: 1200px;
- margin: auto;
- padding: 0 20px;
- display: flex; /* <-- ESTO HACE QUE LOS ELEMENTOS SE ALINEEN HORIZONTALMENTE */
- justify-content: space-between; /* <-- ESTO SEPARA EL LOGO DEL MENÚ */
-align-items: center;
-  width: 100%;
+/* CLAVE DE LA CORRECCIÓN: SEPARACIÓN DEL ENCABEZADO */
+.main-content {
+    margin-left: 280px; 
+    
+    /* APLICACIÓN DE !important PARA GARANTIZAR QUE NINGÚN OTRO 
+       ESTILO LO SOBREESCRIBA AL RECARGAR. */
+    padding-top: 64px !important;  
+    
+    min-height: calc(100vh - 64px); 
 }
-.main-nav ul {
- display: flex; /* <-- ESTO HACE QUE LOS ENLACES (LI) SE ALINEEN HORIZONTALMENTE */
- gap: 32px;
- list-style: none;
+
+/* ... el resto de tu código CSS ... */
+
+/* =======================================================
+   ESTILOS PARA EL MENÚ HAMBURGUESA SUPERIOR (Móvil)
+   ======================================================= */
+/* Responsive */
+@media (max-width: 768px) {
+    .main-nav ul {
+        gap: 18px;
+    }
+
+    #logo {
+        width: 120px;
+    }
 }

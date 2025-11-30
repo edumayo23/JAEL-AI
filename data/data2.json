@@ -1,0 +1,32 @@
+{
+    "lastUpdated": "2025-11-23T12:00:00Z",
+    "kpis": [
+        { "title": "CPA Promedio (Meta: 10.00 $)", "value": "8.75 $", "trend": "up", "icon": "payments", "color": "text-green-500" },
+        { "title": "Total de Conversiones", "value": "4,521", "trend": "up", "icon": "receipt_long", "color": "text-green-500" },
+        { "title": "Inversión (Gasto) Mensual", "value": "40,000 $", "trend": "up", "icon": "monetization_on", "color": "text-green-500" },
+        { "title": "ROAS Promedio (Retorno)", "value": "4.2x", "trend": "up", "icon": "trending_up", "color": "text-green-500" }
+    ],
+    "cpaChartData": {
+        "labels": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+        "data": [9.5, 8.2, 7.8, 8.9, 7.5, 9.1, 8.7]
+    },
+    "budgetChartData": {
+        "labels": ["Búsqueda", "Display", "Redes Sociales", "Remarketing"],
+        "data": [35, 25, 20, 20],
+        "colors": ["#3b82f6", "#10b981", "#f59e0b", "#ef4444"] 
+    },
+    "ctrChartData": {
+        "labels": ["Creativo A", "Creativo B", "Creativo C", "Creativo D"],
+        "data": [1.2, 0.8, 1.5, 1.1]
+    },
+    "historyChartData": {
+        "investment": [30000, 35000, 40000, 42000, 45000],
+        "conversion": [3000, 3800, 4500, 4600, 5000]
+    },
+    "recentConversions": [
+        { "id": "Conv-9904", "campaign": "Búsqueda Q4 Marca", "cost": "5.60 $", "metric": "Venta Completada", "date": "2025-11-23" },
+        { "id": "Conv-9903", "campaign": "Retargeting Top 5%", "cost": "4.15 $", "metric": "Suscripción Premium", "date": "2025-11-23" },
+        { "id": "Conv-9902", "campaign": "Redes Sociales (Video)", "cost": "9.32 $", "metric": "Descarga de Ebook", "date": "2025-11-22" },
+        { "id": "Conv-9901", "campaign": "Display Prospección", "cost": "10.88 $", "metric": "Registro de Demo", "date": "2025-11-22" }
+    ]
+}
