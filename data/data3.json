@@ -1,0 +1,12 @@
+{
+  "formData": {
+    "nombre": "",
+    "telefono": "",
+    "mensaje": "Un asesor se contactará pronto."
+  },
+  "meta": {
+    "page": "contactos",
+    "updated": "2025-11-30",
+    "notes": "Plantilla JSON para integrar con backend o simulación en frontend. No almacena datos por defecto."
+  }
+}

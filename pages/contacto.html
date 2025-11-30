@@ -16,20 +16,22 @@
 </head>
 <body>
 
-  <header id="main-header">
-    <div class="header-container">
-      <a href="../index.html">
-        <img src="../img/logojael.png" alt="Logo JAEL AI" id="logo">
-      </a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="../dashboard.html">Dashboard</a></li>
-          <li><a href="contactos.html" class="active">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header id="main-header">
+  <div class="header-container">
+    <a href="../index.html" class="logo-link">
+      <img src="../img/logojael.png" alt="Logo JAEL AI" id="logo">
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html" class="nav-link">Inicio</a></li>
+        <li><a href="../dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
   <main class="contact-page container">
     <section class="contact-hero glass-card">
@@ -182,7 +184,7 @@
         // No se envía nada al servidor — si deseas simular guardado, integralo aquí.
         // Reseteamos el formulario después de 2.5s
         setTimeout(()=> {
-          form.reset();
+          form.reset(); 
         }, 2500);
       });
     })();
