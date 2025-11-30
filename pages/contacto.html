@@ -1,33 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contacto — JAEL AI</title>
 
-    <link rel="icon" href="../img/favicon.png" type="image/png">
+  <!-- favicon (opcional) -->
+  <link rel="icon" href="../img/favicon.png" type="image/png">
 
+  <!-- Fuente (coherente con tu proyecto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS del apartado de contactos -->
+  <link rel="stylesheet" href="/css/contactos.css">
 </head>
 <body>
 
-    <header id="main-header">
+  <header id="main-header">
     <div class="header-container">
-
-        <a href="../index.html">
-            <img src="../img/logojael.png" alt="Logo de JAEL AI" id="logo">
-        </a>
-
-        <nav class="main-nav">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-
+      <a href="../index.html">
+        <img src="../img/logojael.png" alt="Logo JAEL AI" id="logo">
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../dashboard.html">Dashboard</a></li>
+          <li><a href="contactos.html" class="active">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
 
-    
+  <main class="contact-page container">
+    <section class="contact-hero glass-card">
+      <div class="hero-left">
+        <h1>Contáctanos</h1>
+        <p class="lead">Estamos listos para ayudarte. Elige tu canal y un asesor se pondrá en contacto.</p>
+
+        <!-- Redes sociales -->
+        <div class="social-block">
+          <h2>Síguenos</h2>
+          <div class="social-links">
+            <!-- Reemplaza @USUARIO_INSTAGRAM por tu usuario real -->
+            <a href="https://www.instagram.com/@USUARIO_INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn instagram">
+              <!-- SVG Instagram -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zm6.8-2.6a1.08 1.08 0 1 0 1.08 1.08 1.08 1.08 0 0 0-1.08-1.08z" /></svg>
+              Instagram
+            </a>
+
+            <!-- Reemplaza @USUARIO_FACEBOOK -->
+            <a href="https://www.facebook.com/@USUARIO_FACEBOOK" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn facebook">
+              <!-- SVG Facebook -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.4v-2.9h2.4V9.1c0-2.4 1.4-3.8 3.6-3.8 1 0 2 .08 2 .08v2.2h-1.1c-1.1 0-1.4.66-1.4 1.35v1.6h2.4l-.4 2.9h-2v7A10 10 0 0 0 22 12z" /></svg>
+              Facebook
+            </a>
+
+            <!-- Reemplaza @USUARIO_TIKTOK -->
+            <a href="https://www.tiktok.com/@USUARIO_TIKTOK" target="_blank" rel="noopener" aria-label="TikTok" class="social-btn tiktok">
+              <!-- SVG TikTok -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2v12.1a3.9 3.9 0 1 1-3.9-3.9V6.3A9 9 0 1 0 21 15.9V10h-2V8.2a6.9 6.9 0 1 1-7-6.2z" /></svg>
+              TikTok
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-right">
+        <!-- Mapa -->
+        <div class="map-card">
+          <h2>Nuestra ubicación</h2>
+          <div class="map-wrapper" aria-hidden="false">
+            <iframe
+              title="Mapa - Universidad Salesiana 12 de Octubre"
+              src="https://www.google.com/maps?q=Universidad+Salesiana+12+de+Octubre&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <p class="map-note">Universidad Salesiana — 12 de Octubre</p>
+        </div>
+
+        <!-- Formulario -->
+        <div class="form-card">
+          <h2>Formulario de contacto</h2>
+          <form id="contactForm" autocomplete="off" novalidate>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Tu nombre completo" required>
+
+            <label for="telefono">Número de teléfono</label>
+            <input id="telefono" name="telefono" type="tel" inputmode="tel" placeholder="+593 9XXXXXXXX" pattern="[0-9+ ]{7,20}" required>
+
+            <button type="submit" class="cta-button primary-cta">Enviar</button>
+          </form>
+
+          <p id="formMessage" class="success-text" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="main-footer-pro">
+    <div class="footer-top-section">
+      <div class="footer-grid-layout container">
+        <div class="footer-col-cta">
+          <h4>¿Necesitas ayuda?</h4>
+          <h2>Un asesor está listo para asistirte</h2>
+        </div>
+
+        <div class="footer-col-logo">
+          <img src="../img/logojael.png" alt="Logo JAEL AI" id="footerlogo">
+        </div>
+
+        <div class="footer-col-contact">
+          <h4>Contactos</h4>
+          <ul class="contact-details-list">
+            <li><a href="mailto:info@jael.com">info@jael.com</a></li>
+            <li><span>+593 97 876 0140</span></li>
+            <li><span>Universidad Salesiana — 12 de Octubre</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-section container">
+      <div class="footer-bottom-flex">
+        <div class="footer-legal-links">
+          <a href="#">POLÍTICAS DE PRIVACIDAD</a>
+          <a href="#">TÉRMINOS Y CONDICIONES</a>
+        </div>
+
+        <div class="footer-copyright">
+          <p>Copyright © 2025. JAEL AI.</p>
+        </div>
+
+        <div class="footer-social">
+          <span>SÍGUENOS</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: comportamiento del formulario -->
+  <script>
+    (function(){
+      const form = document.getElementById('contactForm');
+      const msg = document.getElementById('formMessage');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+
+        // Validación simple
+        if(!nombre || !telefono){
+          msg.textContent = 'Por favor completa todos los campos.';
+          msg.classList.remove('ok');
+          msg.classList.add('error');
+          return;
+        }
+
+        // Estructura JSON que coincida con data.json
+        const payload = {
+          formData: {
+            nombre: nombre,
+            telefono: telefono,
+            mensaje: "Un asesor se contactará pronto."
+          },
+          submittedAt: new Date().toISOString()
+        };
+
+        // Mostrar mensaje en pantalla (requisito)
+        msg.textContent = payload.formData.mensaje;
+        msg.classList.remove('error');
+        msg.classList.add('ok');
+
+        // Opcional: mostrar en consola para debugging
+        console.log('Payload (simulado):', JSON.stringify(payload, null, 2));
+
+        // No se envía nada al servidor — si deseas simular guardado, integralo aquí.
+        // Reseteamos el formulario después de 2.5s
+        setTimeout(()=> {
+          form.reset();
+        }, 2500);
+      });
+    })();
+  </script>
 </body>
 </html>
