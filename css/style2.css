@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css (ANULACIÓN FORZADA: Navegación Superior Sin Rayas en Ningún Estado) */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
     
@@ -32,181 +32,92 @@ body {
 
 /* =========================================================
     INICIO: ESTILOS DE BARRA LATERAL (SIDEBAR)
-    *** Altura ajustada al contenido (más corta) ***
     ========================================================= */
-
 .sidebar {
-    width: 280px;
-    min-width: 280px;
+    width: 280px; min-width: 280px;
     background-color: var(--color-card); 
-    
     padding: 30px 20px; 
-    
-    position: fixed;
-    left: 0;
-    
-    top: 64px; /* Fija el inicio justo debajo del Header (64px) */
-    
+    position: fixed; left: 0;
+    top: 64px; 
     max-height: calc(100vh - 64px); 
-    
     overflow-y: auto; 
     z-index: 50;
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
     transform: translateX(0);
 }
 
+/* Títulos y Enlaces de la Barra Lateral... (sin cambios) */
 .sidebar-title {
-    font-size: 1.6rem; 
-    font-weight: 800;
-    color: var(--color-primary);
-    margin-bottom: 25px; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    padding-bottom: 15px;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
+    font-size: 1.6rem; font-weight: 800; color: var(--color-primary);
+    margin-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 15px; letter-spacing: 0.5px;
+    display: flex; align-items: center;
 }
-
 .sidebar-title .material-icons-outlined {
-    font-size: 1.8rem;
-    margin-right: 10px;
+    font-size: 1.8rem; margin-right: 10px;
 }
-
 .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px; 
+    list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; 
 }
-
 .sidebar li a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--color-text-secondary); 
-    padding: 12px 15px;
-    border-radius: 12px; 
-    transition: all 0.25s ease-out;
+    display: flex; align-items: center; text-decoration: none; font-size: 1.05rem;
+    font-weight: 500; color: var(--color-text-secondary); 
+    padding: 12px 15px; border-radius: 12px; transition: all 0.25s ease-out;
 }
-
 .sidebar li a .material-icons-outlined {
-    font-size: 1.35rem;
-    margin-right: 12px;
-    width: 20px;
+    font-size: 1.35rem; margin-right: 12px; width: 20px;
 }
-
 .sidebar li a:hover {
-    background-color: var(--color-card); 
-    color: var(--text-main); 
-    transform: none; 
-    box-shadow: inset 3px 0 0 var(--color-primary); 
+    background-color: var(--color-card); color: var(--text-main); 
+    transform: none; box-shadow: inset 3px 0 0 var(--color-primary); 
 }
-
 .sidebar li a.active {
     background: linear-gradient(to right, var(--color-primary), #2563eb); 
-    color: white !important;
-    font-weight: 700;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); 
-    transform: none; 
+    color: white !important; font-weight: 700;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); transform: none; 
 }
+/* FIN: ESTILOS DE BARRA LATERAL */
 
-/* =========================================================
-    FIN: ESTILOS DE BARRA LATERAL MEJORADOS
-    ========================================================= */
-
-
-/* CLAVE DE LA CORRECCIÓN: SEPARACIÓN DEL ENCABEZADO */
+/* CLAVE DE LA CORRECCIÓN: SEPARACIÓN DEL ENCABEZADO Y SIDEBAR */
 .main-content {
     margin-left: 280px; 
-    /* ESTA REGLA EMPUJA EL CONTENIDO HACIA ABAJO EXACTAMENTE 64px, 
-       LA ALTURA DEL ENCABEZADO FIJO. */
-    padding-top: 64px;  
+    padding-top: 64px !important; 
     min-height: calc(100vh - 64px); 
 }
 
-/* Ajuste para móvil: oculta el sidebar por defecto */
+/* RESPONSIVE: SIDEBAR Y CONTENIDO PRINCIPAL */
 @media (max-width: 1023px) {
     .sidebar {
-        transform: translateX(-100%);
+        transform: translateX(-100%); 
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
     }
     .main-content {
-        margin-left: 0;
+        margin-left: 0; 
     }
     .sidebar.open {
-        transform: translateX(0);
+        transform: translateX(0); 
     }
 }
 
-/* Estilo para la tabla y gráficos */
-.table-container {
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.chart-card {
-    height: 380px;
-}
-
-.card img {
-    display: block; 
-    max-width: 100%;
-    height: auto;
-}
-
-.card:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); 
-}
+/* Estilo para la tabla y gráficos (sin cambios) */
+.table-container { max-height: 400px; overflow-y: auto; }
+.chart-card { height: 380px; }
+.card img { display: block; max-width: 100%; height: auto; }
+.card:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); }
 
 /* =========================================
     ENCABEZADO: ESTILOS GLASSMORPHISM Y FIJO
     ========================================= */
-
 #encabezado-principal {
     background: rgba(0, 0, 0, 0.4) !important; 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); 
-    
-    /* Fijo en la parte superior */
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important; 
-    width: 100% !important; 
-    z-index: 1000 !important; 
-    
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); 
+    position: fixed !important; top: 0 !important; left: 0 !important; 
+    width: 100% !important; z-index: 1000 !important; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important; 
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
-
-/* CLAVE: Asegura que el contenedor de los enlaces sea transparente */
 .navegacion-principal, .navegacion-principal ul {
     background-color: transparent !important;
-}
-
-/* Estilos para los enlaces de navegación */
-.navegacion-principal a {
-    color: var(--text-main, #ffffff) !important; 
-    font-weight: 500;
-    text-decoration: none;
-    padding: 8px 15px; 
-    border-radius: 8px;
-    transition: color 0.25s ease, text-shadow 0.25s ease, background-color 0.25s ease;
-    background-color: transparent !important; 
-    border-bottom: none !important; 
-}
-
-.navegacion-principal a:hover {
-    color: var(--accent-color, #3b82f6) !important; 
-    text-shadow: 0 0 8px var(--accent-glow, #60a5fa);
-    background-color: rgba(59, 130, 246, 0.1); 
-}
-
-.navegacion-principal a.font-bold.border-b-2.border-blue-500.pb-1 {
-    border-bottom: none !important;
 }
 
 /* Ajuste de logo */
@@ -215,10 +126,64 @@ body {
     width: auto;
 }
 
+/* =======================================================
+    ESTILOS DE NAVEGACIÓN PRINCIPAL (SIN RAYAS y SIN SUBRAYADO)
+    ======================================================= */
+
+.navegacion-principal ul {
+    list-style: none;
+    display: flex;
+    gap: 26px; 
+    align-items: center;
+}
+
+/* Estilo Base del Enlace */
+.navegacion-principal .nav-link { 
+    text-decoration: none !important; /* Desactiva el subrayado HTML */
+    color: var(--color-text-secondary) !important; 
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 6px;
+    transition: 0.25s ease;
+    position: relative;
+    background-color: transparent !important; 
+    border-bottom: none !important; /* Desactiva bordes de Tailwind */
+}
+
+/* Hover suave: Solo cambia el color del texto */
+.navegacion-principal .nav-link:hover {
+    color: var(--text-main) !important; 
+    background-color: transparent !important;
+    text-shadow: none !important;
+}
+
+/* 🛑 CLAVE 1: ANULACIÓN FORZADA DEL PSEUDO-ELEMENTO (la raya) 🛑 */
+.navegacion-principal .nav-link::after,
+.navegacion-principal .nav-link:hover::after,
+.navegacion-principal .nav-link.active::after,
+.navegacion-principal .nav-link.font-bold::after {
+    content: none !important; /* Elimina cualquier rastro de la línea animada */
+}
+
+/* 🛑 CLAVE 2: ANULACIÓN DE CUALQUIER BORDE EN ESTADO ACTIVO/BOLD 🛑 */
+.navegacion-principal .nav-link.active,
+.navegacion-principal .nav-link.font-bold { 
+    color: var(--text-main) !important; 
+    font-weight: 700;
+    border-bottom: none !important; /* Doble confirmación de que no hay raya */
+    padding-bottom: 10px !important;
+}
+/* Esto es para anular la clase de Tailwind que podría estar en tu HTML */
+.navegacion-principal a.font-bold.border-b-2.border-blue-500.pb-1 {
+    border-bottom: none !important;
+    padding-bottom: 10px !important;
+    color: var(--text-main) !important;
+}
+
+
 /* =========================================
     PIE DE PÁGINA (FOOTER) - Ajustes de espaciado
     ========================================= */
-
 .main-footer {
     background-color: var(--color-background); 
     padding: 40px 20px 20px 20px;
@@ -229,123 +194,57 @@ body {
     position: relative; 
     z-index: 10;
 }
-
-.main-footer .max-w-7xl {
-    margin: 0 auto;
-    max-width: 1200px; 
-}
-
-.main-footer .copyright-section {
-    padding-bottom: 20px; 
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
-}
-
-.main-footer .text-xs {
-    font-size: 0.8rem; 
-    color: #6b7280; 
-    padding-top: 20px; 
-    margin-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    line-height: 1.5;
-}
-
-.main-footer p {
-    margin: 8px 0;
-    line-height: 1.6;
-}
-
-.main-footer a {
-    color: var(--color-primary); 
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.main-footer a:hover {
-    color: var(--text-main); 
-}
-
-.main-footer strong {
-    color: var(--text-main); 
-}
+/* ... (Resto del Footer) ... */
+.main-footer .max-w-7xl { margin: 0 auto; max-width: 1200px; }
+.main-footer .copyright-section { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.main-footer .text-xs { font-size: 0.8rem; color: #6b7280; padding-top: 20px; margin-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.05); line-height: 1.5; }
+.main-footer p { margin: 8px 0; line-height: 1.6; }
+.main-footer a { color: var(--color-primary); text-decoration: none; transition: color 0.2s; }
+.main-footer a:hover { color: var(--text-main); }
+.main-footer strong { color: var(--text-main); }
 
 /* =======================================================
-   ESTILOS PARA EL MENÚ HAMBURGUESA SUPERIOR (Móvil)
-   ======================================================= */
-@media (max-width: 767px){
-.navegacion-principal {
-    display: none !important;
-}
+    RESPONSIVE: NAVEGACIÓN SUPERIOR SIEMPRE VISIBLE
+    ======================================================= */
 
+/* 1. Oculta el botón de menú hamburguesa SUPERIOR */
 #menu-toggle-button {
-    z-index: 1000 !important;
-    background-color: var(--color-primary) !important;
-    padding: 8px 12px !important; 
-    border-radius: 6px !important;
-    margin-left: auto !important; 
-    display: flex !important; 
-}
-#menu-toggle-button .material-icons-outlined {
-    font-size: 24px !important;
-    color: white !important;
+    display: none !important; 
 }
 
-.navegacion-principal.open{
-    display: block!important; 
-    position:absolute!important;
-    top:64px!important; 
-    left:0!important;
-    width:100%!important;
-    background:var(--color-background)!important;
-    box-shadow:0 8px 15px rgba(0,0,0,0.4)!important; 
-    padding:10px 0!important; 
-    z-index:900!important;
-    border-top:1px solid rgba(255, 255, 255, 0.06)!important;
+/* 2. Asegura que la navegación superior SIEMPRE sea visible */
+.navegacion-principal {
+    display: block !important;
+    position: static !important; 
+    width: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
 }
 
-.navegacion-principal.open ul{
-    flex-direction:column!important;
-    align-items:flex-start!important;
-    padding:0!important; 
-    gap:0!important; 
-}
-.navegacion-principal.open ul li{
-    width: 100%!important;
-}
-.navegacion-principal.open ul li a{
-    padding:12px 20px!important; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05)!important;
-    display: block!important; 
-}
-.navegacion-principal.open ul li:last-child a{
-    border-bottom: none!important;
-}
+/* 3. Asegura que la lista de enlaces siga siendo horizontal */
+.navegacion-principal ul {
+    flex-direction: row !important; 
+    justify-content: flex-end; 
+    gap: 15px !important; 
 }
 
-
-/* CLAVE DE LA CORRECCIÓN: SEPARACIÓN DEL ENCABEZADO */
-.main-content {
-    margin-left: 280px; 
-    
-    /* APLICACIÓN DE !important PARA GARANTIZAR QUE NINGÚN OTRO 
-       ESTILO LO SOBREESCRIBA AL RECARGAR. */
-    padding-top: 64px !important;  
-    
-    min-height: calc(100vh - 64px); 
-}
-
-/* ... el resto de tu código CSS ... */
-
-/* =======================================================
-   ESTILOS PARA EL MENÚ HAMBURGUESA SUPERIOR (Móvil)
-   ======================================================= */
-/* Responsive */
-@media (max-width: 768px) {
-    .main-nav ul {
-        gap: 18px;
+/* 4. Ajustes en pantallas muy pequeñas (< 768px) */
+@media (max-width: 767px) {
+    #encabezado-principal .max-w-7xl {
+        flex-wrap: wrap; 
+        justify-content: center; 
+        padding: 10px 20px;
     }
+    .navegacion-principal .nav-link {
+        font-size: 0.9rem;
+        padding: 8px 5px;
+    }
+}
 
-    #logo {
-        width: 120px;
+/* ESTILOS PARA EL BOTÓN DE ALTERNAR SIDEBAR (Para pantallas < 1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #sidebar-toggle-button {
+        display: flex !important;
     }
 }
